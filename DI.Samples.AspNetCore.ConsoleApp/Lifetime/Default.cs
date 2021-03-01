@@ -21,7 +21,7 @@ namespace DI.Samples.AspNetCore.ConsoleApp.Lifetime
 
         static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var sameOperationImpForTwoDifferentScopedServices = new DefaultOperation();
+            var sameOperationImpForTwoDifferentServices = new DefaultOperation();
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((_,
                         services) =>
@@ -35,9 +35,10 @@ namespace DI.Samples.AspNetCore.ConsoleApp.Lifetime
                         .AddScoped<IScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
                         .AddScoped<IAnotherScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
 
-                        // Same instance for tqo different services
-                        //.AddScoped<IScopedOperation>(sp => sameOperationImpForTwoDifferentScopedServices)
-                        //.AddScoped<IAnotherScopedOperation>(sp => sameOperationImpForTwoDifferentScopedServices)
+                        // Another solution for type-forwarding in asp net core DI (works only in for singletons)
+                        //.AddScoped<DefaultOperation>()
+                        //.AddScoped<ISingletonOperation>(sp => sameOperationImpForTwoDifferentServices)
+                        //.AddScoped<IAnotherSingletonOperation>(sp => sameOperationImpForTwoDifferentServices)
 
                         .AddSingleton<ISingletonOperation, DefaultOperation>()
                         .AddTransient<OperationLogger>());
