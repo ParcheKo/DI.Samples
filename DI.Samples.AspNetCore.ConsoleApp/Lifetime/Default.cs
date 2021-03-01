@@ -19,13 +19,29 @@ namespace DI.Samples.AspNetCore.ConsoleApp.Lifetime
         }
 
 
-        static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((_, services) =>
+        static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            var sameOperationImpForTwoDifferentScopedServices = new DefaultOperation();
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureServices((_,
+                        services) =>
                     services.AddTransient<ITransientOperation, DefaultOperation>()
-                        .AddScoped<IScopedOperation, DefaultOperation>()
+                        //.AddScoped<IScopedOperation, DefaultOperation>()
+                        //.AddScoped<IAnotherScopedOperation, DefaultOperation>()
+
+
+                        // Thumbs up! Solution (better to name it a trick!) for type-forwarding in asp net core DI
+                        .AddScoped<DefaultOperation>()
+                        .AddScoped<IScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
+                        .AddScoped<IAnotherScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
+
+                        // Same instance for tqo different services
+                        //.AddScoped<IScopedOperation>(sp => sameOperationImpForTwoDifferentScopedServices)
+                        //.AddScoped<IAnotherScopedOperation>(sp => sameOperationImpForTwoDifferentScopedServices)
+
                         .AddSingleton<ISingletonOperation, DefaultOperation>()
                         .AddTransient<OperationLogger>());
+        }
 
         static void ExemplifyScoping(IServiceProvider services, string scope)
         {
