@@ -21,26 +21,28 @@ namespace DI.Samples.AspNetCore.ConsoleApp.Lifetime
 
         static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var sameOperationImpForTwoDifferentServices = new DefaultOperation();
+            var sameOperationInstanceForTwoDifferentServices = new DefaultOperation();
             return Host.CreateDefaultBuilder(args)
-                .ConfigureServices((_,
-                        services) =>
-                    services.AddTransient<ITransientOperation, DefaultOperation>()
+                .ConfigureServices((_, services) =>
+                    services
+                        .AddTransient<ITransientOperation, DefaultOperation>()
+                        .AddSingleton<ISingletonOperation, DefaultOperation>()
+
+                        //// two scoped services with the same implementation which resolve to two different values in the same scope
                         //.AddScoped<IScopedOperation, DefaultOperation>()
                         //.AddScoped<IAnotherScopedOperation, DefaultOperation>()
 
-
-                        // Thumbs up! Solution (better to name it a trick!) for type-forwarding in asp net core DI
+                        //// two scoped services with the same implementation which resolve to the same value in the same scope
+                        // Thumbs up! Solution (better to name it a trick!) for type-forwarding in asp net DI
                         .AddScoped<DefaultOperation>()
                         .AddScoped<IScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
                         .AddScoped<IAnotherScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
 
-                        // Another solution for type-forwarding in asp net core DI (works only in for singletons)
+                        //// Another solution for type-forwarding in asp net DI (works only in for singletons)
                         //.AddScoped<DefaultOperation>()
-                        //.AddScoped<ISingletonOperation>(sp => sameOperationImpForTwoDifferentServices)
-                        //.AddScoped<IAnotherSingletonOperation>(sp => sameOperationImpForTwoDifferentServices)
+                        //.AddScoped<ISingletonOperation>(sp => sameOperationInstanceForTwoDifferentServices)
+                        //.AddScoped<IAnotherSingletonOperation>(sp => sameOperationInstanceForTwoDifferentServices)
 
-                        .AddSingleton<ISingletonOperation, DefaultOperation>()
                         .AddTransient<OperationLogger>());
         }
 

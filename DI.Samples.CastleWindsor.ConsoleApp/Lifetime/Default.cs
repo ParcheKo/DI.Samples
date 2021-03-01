@@ -11,7 +11,7 @@ namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
         public static async Task DemoAsync(string[] args)
         {
             using IHost host = CreateHostBuilder(args).Build();
-            var container = BuildContainer();
+            var container = new WindsorContainer();
             container.Install(new DependencyInstaller());
             ExemplifyScoping(container, "Scope 1");
             Console.WriteLine(".......................");
@@ -35,11 +35,6 @@ namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
 
             logger = container.Resolve<OperationLogger>();
             logger.LogOperations($"{scope}-Call 2 .GetRequiredService<OperationLogger>()");
-        }
-
-        private static IWindsorContainer BuildContainer()
-        {
-            return new WindsorContainer();
         }
     }
 }
