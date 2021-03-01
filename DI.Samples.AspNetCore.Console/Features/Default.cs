@@ -12,15 +12,10 @@ using System.IO;
 using System.Linq;
 using ServiceDescriptor = Microsoft.Extensions.DependencyInjection.ServiceDescriptor;
 
-namespace DI.Samples.AspNetCore.Console
+namespace DI.Samples.AspNetCore.ConsoleApp.Features
 {
-    class Program
+    class Default
     {
-        static void Main(string[] args)
-        {
-            ServiceOptionsDemo2();
-        }
-
         private static void AutofacDemo()
         {
             IServiceCollection services = new ServiceCollection();
@@ -230,7 +225,7 @@ namespace DI.Samples.AspNetCore.Console
             var serviceProvider = services.BuildServiceProvider();
             var myService = serviceProvider.GetService<MyService>();
 
-            myService.DoIt();
+            myService?.DoIt();
         }
 
         private static void Demo3()
