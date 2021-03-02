@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI.Samples.AspNetCore.ConsoleApp", "DI.Samples.AspNetCore.ConsoleApp\DI.Samples.AspNetCore.ConsoleApp.csproj", "{AA020ABE-BE4C-4C63-BC34-C638F1D313CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.AspNetCore.ConsoleApp", "DI.Samples.AspNetCore.ConsoleApp\Samples.DI.AspNetCore.ConsoleApp.csproj", "{AA020ABE-BE4C-4C63-BC34-C638F1D313CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI.Samples.CastleWindsor.ConsoleApp", "DI.Samples.CastleWindsor.ConsoleApp\DI.Samples.CastleWindsor.ConsoleApp.csproj", "{CE38D081-76BE-4076-84EE-923C6654B40F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.CastleWindsor.ConsoleApp", "DI.Samples.CastleWindsor.ConsoleApp\Samples.DI.CastleWindsor.ConsoleApp.csproj", "{CE38D081-76BE-4076-84EE-923C6654B40F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI.Samples.AspNetCore.WebAPI", "DI.Samples.AspNetCore.WebAPI\DI.Samples.AspNetCore.WebAPI.csproj", "{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.AspNetCore.WebAPI", "DI.Samples.AspNetCore.WebAPI\Samples.DI.AspNetCore.WebAPI.csproj", "{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
