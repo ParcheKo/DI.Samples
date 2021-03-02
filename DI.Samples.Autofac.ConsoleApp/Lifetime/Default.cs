@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
 
-namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
+namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
 {
     class Default
     {

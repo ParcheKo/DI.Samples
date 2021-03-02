@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
 
-namespace DI.Samples.AspNetCore.ConsoleApp.Lifetime
+namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
 {
     class Default
     {

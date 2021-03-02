@@ -1,4 +1,4 @@
-﻿namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
+﻿namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
 {
     public class OperationLogger
     {

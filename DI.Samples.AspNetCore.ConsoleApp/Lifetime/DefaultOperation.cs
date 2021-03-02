@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DI.Samples.AspNetCore.ConsoleApp.Lifetime
+namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
 {
     public class DefaultOperation :
         ITransientOperation,

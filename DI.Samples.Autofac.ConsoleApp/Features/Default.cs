@@ -12,7 +12,7 @@ using System.IO;
 using System.Linq;
 using ServiceDescriptor = Microsoft.Extensions.DependencyInjection.ServiceDescriptor;
 
-namespace Samples.DI.CastleWindsor.ConsoleApp.Features
+namespace DI.Samples.CastleWindsor.ConsoleApp.Features
 {
     class Default
     {

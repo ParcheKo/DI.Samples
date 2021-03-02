@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace DI.Samples.AspNetCore.ConsoleApp
+namespace Samples.DI.AspNetCore.ConsoleApp
 {
     class Program
     {

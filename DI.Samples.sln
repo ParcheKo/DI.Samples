@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI.Samples.AspNetCore.Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI.Samples.CastleWindsor.ConsoleApp", "DI.Samples.CastleWindsor.ConsoleApp\DI.Samples.CastleWindsor.ConsoleApp.csproj", "{CE38D081-76BE-4076-84EE-923C6654B40F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI.Samples.AspNetCore.WebAPI", "DI.Samples.AspNetCore.WebAPI\DI.Samples.AspNetCore.WebAPI.csproj", "{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CE38D081-76BE-4076-84EE-923C6654B40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE38D081-76BE-4076-84EE-923C6654B40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE38D081-76BE-4076-84EE-923C6654B40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC0275B2-B4B3-41C5-B8FB-6E291C95AD77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

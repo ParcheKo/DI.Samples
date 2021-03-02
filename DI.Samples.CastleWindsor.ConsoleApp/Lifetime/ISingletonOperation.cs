@@ -1,4 +1,4 @@
-﻿namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
+﻿namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
 {
     public interface ISingletonOperation : IOperation
     {

@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using Samples.DI.CastleWindsor.ConsoleApp.Lifetime;
+﻿using DI.Samples.CastleWindsor.ConsoleApp.Lifetime;
+using System.Threading.Tasks;
 
-namespace Samples.DI.CastleWindsor.ConsoleApp
+namespace DI.Samples.CastleWindsor.ConsoleApp
 {
     class Program
     {

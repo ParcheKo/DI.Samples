@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
+namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
 {
     public class DefaultOperation :
         ITransientOperation,

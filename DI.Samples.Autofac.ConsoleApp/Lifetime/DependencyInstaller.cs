@@ -2,7 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
+namespace DI.Samples.CastleWindsor.ConsoleApp.Lifetime
 {
     public class DependencyInstaller : IWindsorInstaller
     {

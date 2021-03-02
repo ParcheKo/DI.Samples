@@ -12,7 +12,7 @@ using System.IO;
 using System.Linq;
 using ServiceDescriptor = Microsoft.Extensions.DependencyInjection.ServiceDescriptor;
 
-namespace DI.Samples.AspNetCore.ConsoleApp.Features
+namespace Samples.DI.AspNetCore.ConsoleApp.Features
 {
     class Default
     {
