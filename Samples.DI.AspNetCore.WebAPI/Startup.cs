@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Samples.DI.Registration.AspNetCore.Lifetime;
+using Samples.DI.Shared.Operation;
 
 namespace Samples.DI.AspNetCore.WebAPI
 {
@@ -32,6 +34,8 @@ namespace Samples.DI.AspNetCore.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DI.Samples.AspNetCore.WebAPI", Version = "v1" });
             });
+
+            services.RegisterLifetimeDemoDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +57,21 @@ namespace Samples.DI.AspNetCore.WebAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.Use(async (context, next) =>
+            {
+                var baseUrl = $"{context.Request.Scheme}://{context.Request.Host.Value}{context.Request.PathBase.Value}";
+                var url = context.Request.Path.Value;
+
+                // Redirect to an external URL
+                if (url=="/")
+                {
+                    context.Response.Redirect($"{baseUrl}/home");
+                    return;   // short circuit
+                }
+
+                await next();
             });
         }
     }

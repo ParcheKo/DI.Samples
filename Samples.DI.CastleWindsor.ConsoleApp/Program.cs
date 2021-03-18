@@ -11,7 +11,7 @@ namespace Samples.DI.CastleWindsor.ConsoleApp
             switch (selectedChoice)
             {
                 case DemoApp.Lifetime:
-                    await Default.DemoAsync(args);
+                    await Default.LifetimeDemoAsync(args);
                     break;
             }
         }

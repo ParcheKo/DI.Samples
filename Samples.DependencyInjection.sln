@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.AspNetCore.Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.CastleWindsor.ConsoleApp", "C:\Users\Amir\source\mine\dependency-injection-samples\Samples.DI.CastleWindsor.ConsoleApp\Samples.DI.CastleWindsor.ConsoleApp.csproj", "{E167C84C-BB4D-401C-9C67-7E3EE7809700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.DI.Shared", "Samples.DI.Shared\Samples.DI.Shared.csproj", "{86A8D765-AD23-4907-86F8-B337CC50E7FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.Shared", "Samples.DI.Shared\Samples.DI.Shared.csproj", "{86A8D765-AD23-4907-86F8-B337CC50E7FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.Registration.CastleWindsor", "Samples.DI.Registration.CastleWindsor\Samples.DI.Registration.CastleWindsor.csproj", "{5651270E-AD08-4F49-B5FE-C6105E1A0A09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.DI.Registration.AspNetCore", "Samples.DI.Registration.AspNetCore\Samples.DI.Registration.AspNetCore.csproj", "{FEF912AC-6947-48DF-8D34-0CEB581770ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{86A8D765-AD23-4907-86F8-B337CC50E7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86A8D765-AD23-4907-86F8-B337CC50E7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86A8D765-AD23-4907-86F8-B337CC50E7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5651270E-AD08-4F49-B5FE-C6105E1A0A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5651270E-AD08-4F49-B5FE-C6105E1A0A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5651270E-AD08-4F49-B5FE-C6105E1A0A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5651270E-AD08-4F49-B5FE-C6105E1A0A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF912AC-6947-48DF-8D34-0CEB581770ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF912AC-6947-48DF-8D34-0CEB581770ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF912AC-6947-48DF-8D34-0CEB581770ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF912AC-6947-48DF-8D34-0CEB581770ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

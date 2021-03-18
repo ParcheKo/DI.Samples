@@ -26,6 +26,6 @@
         private static void LogOperation<T>(T operation, string scope, string message)
             where T : IOperation =>
             System.Console.WriteLine(
-                $"{scope}: {typeof(T).Name,-23} [ {operation.OperationId}...{message,-29} ]");
+                $"{scope}: {typeof(T).Name,-23} [ {operation}...{message,-29} ]");
     }
 }

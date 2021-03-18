@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Samples.DI.Shared.Operation;
 using System;
 using System.Threading.Tasks;
+using Samples.DI.Registration.AspNetCore.Lifetime;
 
 namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
 {
@@ -24,27 +25,7 @@ namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
         {
             var sameOperationInstanceForTwoDifferentServices = new DefaultOperation();
             return Host.CreateDefaultBuilder(args)
-                .ConfigureServices((_, services) =>
-                    services
-                        .AddTransient<ITransientOperation, DefaultOperation>()
-                        .AddSingleton<ISingletonOperation, DefaultOperation>()
-
-                        //// two scoped services with the same implementation which resolve to two different values in the same scope
-                        //.AddScoped<IScopedOperation, DefaultOperation>()
-                        //.AddScoped<IAnotherScopedOperation, DefaultOperation>()
-
-                        //// two scoped services with the same implementation which resolve to the same value in the same scope
-                        // Solution (better to name it a trick!) for type-forwarding in asp net DI
-                        .AddScoped<DefaultOperation>()
-                        .AddScoped<IScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
-                        .AddScoped<IAnotherScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
-
-                        //// Another solution for type-forwarding in asp net DI (works only for singletons)
-                        //.AddScoped<DefaultOperation>()
-                        //.AddScoped<ISingletonOperation>(sp => sameOperationInstanceForTwoDifferentServices)
-                        //.AddScoped<IAnotherSingletonOperation>(sp => sameOperationInstanceForTwoDifferentServices)
-
-                        .AddTransient<OperationLogger>());
+                .ConfigureServices((_, services) => services.RegisterLifetimeDemoDependencies());
         }
 
         static void ExemplifyScoping(IServiceProvider services, string scope)

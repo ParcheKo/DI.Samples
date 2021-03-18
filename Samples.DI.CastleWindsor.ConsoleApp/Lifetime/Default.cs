@@ -4,16 +4,17 @@ using Microsoft.Extensions.Hosting;
 using Samples.DI.Shared.Operation;
 using System;
 using System.Threading.Tasks;
+using Samples.DI.Registration.CastleWindsor.Lifetime;
 
 namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
 {
     class Default
     {
-        public static async Task DemoAsync(string[] args)
+        public static async Task LifetimeDemoAsync(string[] args)
         {
             using IHost host = CreateHostBuilder(args).Build();
             var container = new WindsorContainer();
-            container.Install(new DependencyInstaller());
+            container.Install(new LifetimeDemoDependenciesInstaller());
 
             ExemplifyScoping(container, "Scope 1");
             Console.WriteLine(".......................");
@@ -31,12 +32,12 @@ namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
             using IDisposable _ = container.BeginScope();
 
             OperationLogger logger = container.Resolve<OperationLogger>();
-            logger.LogOperations($"{scope}-Call 1 .GetRequiredService<OperationLogger>()");
+            logger.LogOperations($"{scope}-Call 1 to GetRequiredService<OperationLogger>()");
 
             Console.WriteLine("...");
 
             logger = container.Resolve<OperationLogger>();
-            logger.LogOperations($"{scope}-Call 2 .GetRequiredService<OperationLogger>()");
+            logger.LogOperations($"{scope}-Call 2 to GetRequiredService<OperationLogger>()");
         }
     }
 }

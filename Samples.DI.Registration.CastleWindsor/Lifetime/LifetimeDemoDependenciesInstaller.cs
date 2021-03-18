@@ -3,9 +3,9 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Samples.DI.Shared.Operation;
 
-namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
+namespace Samples.DI.Registration.CastleWindsor.Lifetime
 {
-    public class DependencyInstaller : IWindsorInstaller
+    public class LifetimeDemoDependenciesInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container,
             IConfigurationStore store)
