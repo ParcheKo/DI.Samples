@@ -1,4 +1,4 @@
-﻿namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
+﻿namespace Samples.DI.Shared.Operation
 {
     public interface IScopedOperation : IOperation
     {

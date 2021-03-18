@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Samples.DI.Shared.Operation;
 
 namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
 {
@@ -14,7 +15,7 @@ namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
                 .For<ISingletonOperation>().Named("DefaultOperation-Singleton")
                 .ImplementedBy<DefaultOperation>().LifestyleSingleton());
 
-            //// two scoped services with the same implementation which resolve to tqo different values in the same scope
+            //// two scoped services with the same implementation which resolve to two different values in the same scope
             //container.Register(Component
             //    .For<IAnotherScopedOperation>().Named("DefaultOperation-Scoped-1")
             //    .ImplementedBy<DefaultOperation>().LifestyleScoped());
@@ -39,10 +40,10 @@ namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
 
 
             //// one transient service being its own implementation
-            // the easy way!
+            // method 1:  the easy way!
             container.Register(Component.For<OperationLogger>().LifestyleTransient());
 
-            // the hard way!
+            // method 2: the hard way!
             //container.Register(Component
             //    .For<OperationLogger>().UsingFactoryMethod<OperationLogger>(kernel => new OperationLogger(
             //        kernel.Resolve<ITransientOperation>(),

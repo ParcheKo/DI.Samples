@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Samples.DI.Shared.Operation;
 using System;
 using System.Threading.Tasks;
 
@@ -33,12 +34,12 @@ namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
                         //.AddScoped<IAnotherScopedOperation, DefaultOperation>()
 
                         //// two scoped services with the same implementation which resolve to the same value in the same scope
-                        // Thumbs up! Solution (better to name it a trick!) for type-forwarding in asp net DI
+                        // Solution (better to name it a trick!) for type-forwarding in asp net DI
                         .AddScoped<DefaultOperation>()
                         .AddScoped<IScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
                         .AddScoped<IAnotherScopedOperation>(sp => sp.GetRequiredService<DefaultOperation>())
 
-                        //// Another solution for type-forwarding in asp net DI (works only in for singletons)
+                        //// Another solution for type-forwarding in asp net DI (works only for singletons)
                         //.AddScoped<DefaultOperation>()
                         //.AddScoped<ISingletonOperation>(sp => sameOperationInstanceForTwoDifferentServices)
                         //.AddScoped<IAnotherSingletonOperation>(sp => sameOperationInstanceForTwoDifferentServices)

@@ -1,4 +1,4 @@
-﻿namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
+﻿namespace Samples.DI.Shared.Operation
 {
     public interface ISingletonOperation : IOperation
     {

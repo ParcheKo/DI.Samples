@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Lifestyle;
 using Castle.Windsor;
 using Microsoft.Extensions.Hosting;
+using Samples.DI.Shared.Operation;
 using System;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace Samples.DI.CastleWindsor.ConsoleApp.Lifetime
             using IHost host = CreateHostBuilder(args).Build();
             var container = new WindsorContainer();
             container.Install(new DependencyInstaller());
+
             ExemplifyScoping(container, "Scope 1");
             Console.WriteLine(".......................");
             ExemplifyScoping(container, "Scope 2");
