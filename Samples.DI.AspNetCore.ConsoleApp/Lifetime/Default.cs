@@ -23,23 +23,22 @@ namespace Samples.DI.AspNetCore.ConsoleApp.Lifetime
 
         static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var sameOperationInstanceForTwoDifferentServices = new DefaultOperation();
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((_, services) => services.RegisterLifetimeDemoDependencies());
         }
 
-        static void ExemplifyScoping(IServiceProvider services, string scope)
+        static void ExemplifyScoping(IServiceProvider serviceProvider, string scope)
         {
-            using IServiceScope serviceScope = services.CreateScope();
+            using var serviceScope = serviceProvider.CreateScope();
             IServiceProvider provider = serviceScope.ServiceProvider;
 
             OperationLogger logger = provider.GetRequiredService<OperationLogger>();
-            logger.LogOperations($"{scope}-Call 1 .GetRequiredService<OperationLogger>()");
+            logger.LogOperations($"{scope}-Call 1 to .GetRequiredService<OperationLogger>()");
 
             Console.WriteLine("...");
 
             logger = provider.GetRequiredService<OperationLogger>();
-            logger.LogOperations($"{scope}-Call 2 .GetRequiredService<OperationLogger>()");
+            logger.LogOperations($"{scope}-Call 2 to .GetRequiredService<OperationLogger>()");
         }
     }
 }

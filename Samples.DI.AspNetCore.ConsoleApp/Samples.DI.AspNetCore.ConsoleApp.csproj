@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="D:\sys.dirs\source\mine\dependency-injection-samples\Samples.DI.Registration.AspNetCore\Samples.DI.Registration.AspNetCore.csproj" />
-    <ProjectReference Include="D:\sys.dirs\source\mine\dependency-injection-samples\Samples.DI.Shared\Samples.DI.Shared.csproj" />
+    <ProjectReference Include="..\Samples.DI.Registration.AspNetCore\Samples.DI.Registration.AspNetCore.csproj" />
+    <ProjectReference Include="..\Samples.DI.Shared\Samples.DI.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

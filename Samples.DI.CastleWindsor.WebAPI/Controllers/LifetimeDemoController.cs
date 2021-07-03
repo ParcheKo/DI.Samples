@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
 using Samples.DI.Shared.Operation;
 
-namespace Samples.DI.AspNetCore.WebAPI.Controllers
+namespace Samples.DI.CastleWindsor.WebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -26,14 +22,14 @@ namespace Samples.DI.AspNetCore.WebAPI.Controllers
             {
                 Call1 = new
                 {
-                    Info = "Call 1 to HttpContext.RequestServices.GetService(typeof(...))",
+                    Info = "Call 1 to HttpContext.RequestServices.GetService()",
                     Transient = transientOperation?.ToString(),
                     Scoped = scopedOperation?.ToString(),
                     Singleton = singletonOperation?.ToString()
                 },
                 Call2 = new
                 {
-                    Info = "Call 2 to HttpContext.RequestServices.GetService(typeof(...))",
+                    Info = "Call 2 to HttpContext.RequestServices.GetService()",
                     Transient = transientOperation2?.ToString(),
                     Scoped = scopedOperation2?.ToString(),
                     Singleton = singletonOperation2?.ToString()

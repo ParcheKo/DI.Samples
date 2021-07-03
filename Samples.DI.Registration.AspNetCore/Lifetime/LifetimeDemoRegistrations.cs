@@ -7,6 +7,8 @@ namespace Samples.DI.Registration.AspNetCore.Lifetime
     {
         public static IServiceCollection RegisterLifetimeDemoDependencies(this IServiceCollection services)
         {
+            var sameOperationInstanceForTwoDifferentServices = new DefaultOperation();
+
             return services
                 .AddTransient<ITransientOperation, DefaultOperation>()
                 .AddSingleton<ISingletonOperation, DefaultOperation>()

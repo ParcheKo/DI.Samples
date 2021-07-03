@@ -11,10 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Samples.DI.Registration.AspNetCore.Lifetime;
-using Samples.DI.Shared.Operation;
 
-namespace Samples.DI.AspNetCore.WebAPI
+namespace Samples.DI.CastleWindsor.WebAPI
 {
     public class Startup
     {
@@ -32,10 +30,8 @@ namespace Samples.DI.AspNetCore.WebAPI
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Samples.DI.AspNetCore.WebAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Samples.DI.CastleWindsor.WebAPI", Version = "v1" });
             });
-
-            services.RegisterLifetimeDemoDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +41,7 @@ namespace Samples.DI.AspNetCore.WebAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Samples.DI.AspNetCore.WebAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Samples.DI.CastleWindsor.WebAPI v1"));
             }
 
             app.UseHttpsRedirection();
@@ -58,7 +54,7 @@ namespace Samples.DI.AspNetCore.WebAPI
             {
                 endpoints.MapControllers();
             });
-
+            
             app.Use(async (context, next) =>
             {
                 var baseUrl = $"{context.Request.Scheme}://{context.Request.Host.Value}{context.Request.PathBase.Value}";
